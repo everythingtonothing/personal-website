@@ -66,7 +66,7 @@
 }
 
 .xu .page-right img {
-    width: 800px;
+    /* width: 800px; */
     opacity: 0.8;  
     transition: all 1s;
 }
