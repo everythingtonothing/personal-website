@@ -75,6 +75,9 @@ body{
     /* height: 100%; */
     /* display: none; */
 }
+.personal:hover{
+    cursor: pointer;
+}
 .block{
     width: 20%;
     margin: 0 6%;
@@ -144,6 +147,9 @@ img.logo {
     top: 50%;
     transform: translateY(-50%);
     display: none;
+}
+.label:hover{
+    cursor: pointer;
 }
 .people{
     position: relative;
