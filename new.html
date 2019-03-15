@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        *{margin: 0; padding: 0;}
+        html,body{
+            width: 100%;
+            height: 100%;
+            position: relative;
+        }
+        .a,.b,.c,.d,.e,.f{
+            position: fixed;
+            width: 5%;
+            height: 10%;
+        }
+        .a{
+            left: 21%;
+            top: 26%;
+            background: red;
+        }
+        .b{
+            left: 47%;
+            top: 26%;
+            background: yellow;
+        }
+        .c{
+            left: 73%;
+            top: 26%;
+            background: black;
+        }
+        .d{
+            left: 21%;
+            top: 62%;
+            background: blue;
+        }
+        .e{
+            left: 47%;
+            top: 62%;
+            background: green;
+        }
+        .f{
+            left: 73%;
+            top: 62%;
+            background: pink;
+        }
+
+        @keyframes animate1{
+            0%{
+                left: 21%;
+                top: 26%;
+            }
+            25%{
+                left: 16%;
+                top: 21%;
+            }
+            50%{
+                left: 11%;
+                top: 15%;
+            }
+            75%{
+                left: 6%;
+                top: 10%;
+            }
+            100%{
+                left: 2%;
+                top: 5%;
+            }
+        }
+        .a{
+            animation: animate1 1s;
+            left: 2%;
+            top: 5%;
+        }
+
+        @keyframes animate2{
+            0%{
+                left: 47%;
+                top: 26%;
+            }
+            25%{
+                left: 35%;
+                top: 24.5%;
+            }
+            50%{
+                left: 24%;
+                top: 23%;
+            }
+            75%{
+                left: 13%;
+                top: 21.5%;
+            }
+            100%{
+                left: 2%;
+                top: 20%;
+            }
+        }
+        .b{
+            animation: animate2 1s;
+            left: 2%;
+            top: 20%;
+        }
+    </style>
+</head>
+<body>
+    <div class="a"></div>
+    <div class="b"></div>
+    <div class="c"></div>
+    <div class="d"></div>
+    <div class="e"></div>
+    <div class="f"></div>
+    </div>
+</body>
+</html>

@@ -1,3 +1,12 @@
+$("#label>div").click(function(){
+    $("#background>a").eq($(this).index()).fadeIn("slow").siblings().fadeOut("slow");
+    $("#right").fadeOut("slow");
+})
+$("#willerce").click(function(){
+    $("#willerce").fadeOut("slow");
+    $("#right").fadeIn("slow");
+    $("#label").fadeIn("slow");
+})
 //Waylee.net 代码源于网络，摘抄请勿删除此注释，2017.11.12
 //判断用户PC/Phone平台
 function browserRedirect() {
