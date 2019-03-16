@@ -143,7 +143,7 @@ img.logo {
     width: 20%;
     z-index: 1;
     position: absolute;
-    left: 5%;
+    left: 3%;
     top: 50%;
     transform: translateY(-50%);
     display: none;
@@ -153,6 +153,7 @@ img.logo {
 }
 .people{
     position: relative;
+    width: 360px;
 }
 .people>img{
     display: inline-block;

@@ -65,15 +65,17 @@
     cursor: pointer;
 }
 
+/* 610 */
 .xu .page-right img {
-    /* width: 800px; */
+    width: 450px;
     opacity: 0.8;  
     transition: all 1s;
 }
+/* 杨曼丽 */
 .liao .page-right img {
-    width: 750px;
+    margin-left: 160px;
+    width: 300px;
     opacity: 0.8;
-    transform: translateX(-200px);
     transition: all 1s;
 }
 .liu .page-right img {

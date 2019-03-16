@@ -1,117 +1,124 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
-    <style>
-        *{margin: 0; padding: 0;}
-        html,body{
-            width: 100%;
-            height: 100%;
-            position: relative;
-        }
-        .a,.b,.c,.d,.e,.f{
-            position: fixed;
-            width: 5%;
-            height: 10%;
-        }
-        .a{
-            left: 21%;
-            top: 26%;
-            background: red;
-        }
-        .b{
-            left: 47%;
-            top: 26%;
-            background: yellow;
-        }
-        .c{
-            left: 73%;
-            top: 26%;
-            background: black;
-        }
-        .d{
-            left: 21%;
-            top: 62%;
-            background: blue;
-        }
-        .e{
-            left: 47%;
-            top: 62%;
-            background: green;
-        }
-        .f{
-            left: 73%;
-            top: 62%;
-            background: pink;
-        }
-
-        @keyframes animate1{
-            0%{
-                left: 21%;
-                top: 26%;
-            }
-            25%{
-                left: 16%;
-                top: 21%;
-            }
-            50%{
-                left: 11%;
-                top: 15%;
-            }
-            75%{
-                left: 6%;
-                top: 10%;
-            }
-            100%{
-                left: 2%;
-                top: 5%;
-            }
-        }
-        .a{
-            animation: animate1 1s;
-            left: 2%;
-            top: 5%;
-        }
-
-        @keyframes animate2{
-            0%{
-                left: 47%;
-                top: 26%;
-            }
-            25%{
-                left: 35%;
-                top: 24.5%;
-            }
-            50%{
-                left: 24%;
-                top: 23%;
-            }
-            75%{
-                left: 13%;
-                top: 21.5%;
-            }
-            100%{
-                left: 2%;
-                top: 20%;
-            }
-        }
-        .b{
-            animation: animate2 1s;
-            left: 2%;
-            top: 20%;
-        }
-    </style>
+	<meta charset="UTF-8" />
+	<title>Document</title>
+	<style>
+	h1{
+		text-align: center;
+	}
+	body{
+		background: #eeedef;
+	}
+	img{
+		padding:10px 10px  15px 10px ;
+		background: #fff;
+		border:1px solid #ddd;
+		position:absolute;
+		transition:1000ms;
+	}
+	.pic1{
+		transform:rotate(20deg);
+		-webkit-transform:rotate(20deg);
+		-moz-transform:rotate(20deg);
+		 top:50px;
+        left:200px;
+	}
+	.pic2{
+		transform:rotate(40deg);
+		-webkit-transform:rotate(40deg);
+		-moz-transform:rotate(40deg);
+		 top:150px;
+        left:100px;
+	}
+	.pic3{
+		transform:rotate(30deg);
+		-webkit-transform:rotate(30deg);
+		-moz-transform:rotate(30deg);
+		 top:50px;
+        left:130px;
+	}
+	.pic4{
+		transform:rotate(-20deg);
+		-webkit-transform:rotate(-20deg);
+		-moz-transform:rotate(-20deg);
+		 top:70px;
+        left:300px;
+	}
+	.pic5{
+		transform:rotate(70deg);
+		-webkit-transform:rotate(70deg);
+		-moz-transform:rotate(70deg);
+		 top:210px;
+        left:400px;
+        z-index: 45;
+	}
+	.pic6{
+		transform:rotate(10deg);
+		-webkit-transform:rotate(10deg);
+		-moz-transform:rotate(10deg);
+		 top:170px;
+        left:580px;
+        z-index: 50;
+	}
+	.pic7{
+		transform:rotate(-60deg);
+		-webkit-transform:rotate(-60deg);
+		-moz-transform:rotate(20deg);
+		 top:590px;
+        left:400px;
+        z-index: 240;
+	}
+	.pic8{
+		transform:rotate(20deg);
+		-webkit-transform:rotate(20deg);
+		-moz-transform:rotate(20deg);
+		 top:50px;
+        left:400px;
+        z-index: 120;
+	}
+	.pic9{
+		transform:rotate(70deg);
+		-webkit-transform:rotate(70deg);
+		-moz-transform:rotate(70deg);
+		 top:420px;
+        left:500px;
+	}
+	.pic10{
+		transform:rotate(45deg);
+		-webkit-transform:rotate(45deg);
+		-moz-transform:rotate(45deg);
+		top:120px;
+        left:600px;
+        z-index:300;
+	}
+	img:hover{
+		transform:rotate(0deg);
+		transform:scale(2);
+		box-shadow: 10px 10px 15px #ccc;
+        z-index: 900;
+	}
+	#container{
+		width:80%;
+		height:600px;
+		margin:50px auto;
+        position:relative;
+	}
+	</style>
 </head>
 <body>
-    <div class="a"></div>
-    <div class="b"></div>
-    <div class="c"></div>
-    <div class="d"></div>
-    <div class="e"></div>
-    <div class="f"></div>
-    </div>
+	<h1>照片墙</h1>
+	<div id="container">
+	  <img src="img/psb.jpg" alt="" class="pic1" width="100px" height="100px"/>
+	  <img src="img/psb.png" alt="" class="pic2" width="100px" height="100px"/>
+      <img src="img/头像-郭飞飞.jpg" alt="" class="pic3" width="100px" height="100px"/>
+	  <img src="img/灯泡.png" alt="" class="pic4" width="100px" height="100px"/>
+	  <img src="img/LOGO.png" alt="" class="pic5" width="100px" height="100px"/>
+	  <img src="img/QQ图片20190313194721.jpg" alt="" class="pic6" width="100px" height="100px"/>
+	  <img src="img/QQ图片20190315082611.jpg" alt="" class="pic7" width="100px" height="100px"/>
+	  <img src="img/psb.jpg" alt="" class="pic8" width="100px" height="100px"/>
+	  <img src="img/psb.png" alt="" class="pic9" width="100px" height="100px"/>
+	  <img src="img/timg.jpg" alt="" class="pic10" width="100px" height="100px"/>
+	</div>
 </body>
 </html>
