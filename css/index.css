@@ -55,8 +55,12 @@
     width: 300px;
     margin-left: 80px;
     margin-top: 30px;
+    position: relative;
 }
-
+.page>p>span{
+    position: absolute;
+    right: 0;
+}
 
 .page {
     position: relative;
@@ -66,41 +70,49 @@
 }
 
 /* 610 */
-.xu .page-right img {
+.liu .page-right img {
     width: 450px;
-    opacity: 0.8;  
+    /* opacity: 0.8;   */
+    transition: all 1s;
+}
+/* 董倩 */
+.dong .page-right img {
+    width: 484px;
+    /* opacity: 0.8; */
     transition: all 1s;
 }
 /* 杨曼丽 */
-.liao .page-right img {
+.yang .page-right img {
     margin-left: 150px;
     width: 300px;
-    opacity: 0.8;
+    /* opacity: 0.8; */
     transition: all 1s;
 }
-.liu .page-right img {
-    opacity: 0.8;  
+/* 李治宏 */
+.li .page-right img {
+    width: 450px;
+    /* opacity: 0.8;   */
     transition: all 1s;
 }
-.feng .page-right img {
-    opacity: 0.8;  
+/* 郭飞飞 */
+.guo .page-right img {
+    width: 450px;
+    /* opacity: 0.8;   */
     transition: all 1s;
 }
-.wu .page-right img {
-    opacity: 0.8;  
+/* 吉继帅 */
+.ji .page-right img {
+    width: 450px;
+    /* opacity: 0.8;   */
     transition: all 1s;
 }
-.sun .page-right img {
-    width: 484px;
-    opacity: 0.8;
-    transition: all 1s;
-}
-.xu>img,
-.liao>img,
+
 .liu>img,
-.sun>img,
-.feng>img,
-.wu>img {
+.dong>img,
+.yang>img,
+.li>img,
+.guo>img,
+.ji>img {
     position: absolute;
     top: 0;
     left: 0;
@@ -111,28 +123,28 @@
     transition: all 1s;
 }
 
-.feng {
+.guo {
     color: #fff !important;
 }
 .page:hover {
     transform: translateY(-10px);
     box-shadow: 0 8px 15px 8px rgba(0, 0, 0, 0.35);
 }
-.xu:hover>img,
-.liao:hover>img,
-.sun:hover>img,
-.feng:hover>img,
 .liu:hover>img,
-.wu:hover>img {
+.dong:hover>img,
+.yang:hover>img,
+.li:hover>img,
+.guo:hover>img,
+.ji:hover>img {
     /* 高斯模糊滤镜 */
     filter: blur(0);
 }
-.xu:hover .page-right img,
-.liao:hover .page-right img,
-.liu:hover .page-right img, 
-.sun:hover .page-right img, 
-.wu:hover .page-right img, 
-.feng:hover .page-right img  {
+.liu:hover .page-right img,
+.dong:hover .page-right img,
+.yang:hover .page-right img, 
+.li:hover .page-right img, 
+.guo:hover .page-right img, 
+.ji:hover .page-right img  {
     /* 透明度为0，不显示 */
     opacity: 0;
 }

@@ -1,6 +1,10 @@
 $("#label>div").click(function(){
     $("#right").fadeOut();
-    $("#background>a").eq($(this).index()).fadeIn("slow").siblings().fadeOut("slow");
+    var index=$(this).index();
+    $("#background>a").eq(index).siblings().fadeOut();
+    setTimeout(function(){
+        $("#background>a").eq(index).fadeIn();
+    },500);
 })
 $("#willerce").click(function(){
     $("#willerce").fadeOut("slow");
@@ -34,11 +38,11 @@ var S = {
                 init: function () {
                     S.Drawing.init('.canvas');
                     document.body.classList.add('body--ready');
-					if(p){
-						S.UI.simulate("Here is|H5颜值最高组|Welcome to|Our Website|#countdown 3");	
-					}else{
+					// if(p){
+					// 	S.UI.simulate("Here is|H5颜值最高组|Welcome to|Our Website|#countdown 3");	
+					// }else{
 						S.UI.simulate("#countdown 3");	
-					}
+					// }
                     				
                     S.Drawing.loop(function () {
                         S.Shape.render();
