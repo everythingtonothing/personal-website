@@ -269,35 +269,10 @@ img.logo {
       }
 }
 
-
-
-
-
-
-
-
-
 @keyframes blink{
     0%{opacity: 1;}
     100%{opacity: 0;} 
 }
-/* 添加兼容性前缀 */
-/* @-webkit-keyframes blink{
-    0% {opacity: 1;}
-    100% {opacity: 0;}
-}
-@-moz-keyframes blink{
-    0% {opacity: 1;}
-    100% {opacity: 0;}
-}
-@-ms-keyframes blink{
-    0% {opacity: 1;} 
-    100% {opacity: 0;}
-}
-@-o-keyframes blink{
-    0% {opacity: 1;}
-    100% {opacity: 0;}
-} */
 
 .blink{
     position: fixed;
@@ -307,11 +282,15 @@ img.logo {
     font-size: 24px;
     color: #fff;
     animation: blink 1.5s linear infinite;  
-    /* 其它浏览器兼容性前缀 */
-    /* -webkit-animation: blink 1.5s linear infinite;
-    -moz-animation: blink 1.5s linear infinite;
-    -ms-animation: blink 1.5s linear infinite;
-    -o-animation: blink 1.5s linear infinite; */
+}
+
+.blink2{
+    position: fixed;
+    left: 20%;
+    bottom: -5%;
+    font-size: 28px;
+    color: #fff;
+    animation: blink 1.5s linear infinite;  
 }
 
 
