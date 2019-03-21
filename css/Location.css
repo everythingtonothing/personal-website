@@ -293,6 +293,27 @@ img.logo {
     animation: blink 1.5s linear infinite;  
 }
 
+.return{
+    display: block;
+    width: 100px;
+    height: 40px;
+    background-color: rgb(0,0,0,0);
+    border: 1px solid #ff6b6b;
+    font-size: 14px;
+    text-align: center;
+    line-height: 40px;
+    color: #fff;
+    position: absolute;
+    top: 5%; right: 2%;
+    display: none;
+    /* animation: blink 3s linear infinite; */
+    transition: transform 1s; 
+}
+.return:hover{
+    transform: scale(1.2);
+    cursor: pointer;
+}
+
 
 
 

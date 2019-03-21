@@ -1,13 +1,26 @@
+var index;
+// 左侧标签
 $("#label>div").click(function(){
+    // 右侧照片墙隐藏，返回标签出现，友邻个人简介隐藏，对应序号个人简介出现
     $("#right").fadeOut();
-    var index=$(this).index();
+    $("#return").fadeIn("slow");
+    index=$(this).index();
     $("#background>a").eq(index).siblings().fadeOut();
     setTimeout(function(){
         $("#background>a").eq(index).fadeIn();
     },500);
 })
+// 返回照片墙按钮
+$("#return").click(function(){
+    // 全部个人简介隐藏，返回按钮隐藏，照片墙显示
+    $("#background>a").eq(index).fadeOut().siblings().fadeOut();
+    $("#return").fadeOut();
+    $("#right").fadeIn("slow");
+})
+// 主页面
 $("#willerce").click(function(){
-    $("#willerce").fadeOut("slow");
+    // 主页面隐藏，照片墙出现，左侧标签出现
+    $("#willerce").fadeOut();
     $("#right").fadeIn("slow");
     $("#label").fadeIn("slow");
 })
