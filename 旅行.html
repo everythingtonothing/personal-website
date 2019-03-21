@@ -1,0 +1,755 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+<title>旅行</title>
+<link href="images/旅行.png" rel="shortcut icon" type="image/x-icon">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="keywords" content="" />
+<script type="application/x-javascript">
+	addEventListener("load", function () {
+		setTimeout(hideURLbar, 0);
+	}, false);
+
+	function hideURLbar() {
+		window.scrollTo(0, 1);
+	}
+</script>
+<!-- Custom Theme files -->
+<link href="css/bootstrap.css" type="text/css" rel="stylesheet" media="all">
+<link href="css/style1.css" type="text/css" rel="stylesheet" media="all">
+<link href="css/font-awesome.css" rel="stylesheet">
+<!-- font-awesome icons -->
+<!-- //Custom Theme files -->
+<!-- web-fonts -->
+<link href="http://fonts.googleapis.com/css?family=Josefin+Sans:100,100i,300,300i,400,400i,600,600i,700,700i&amp;subset=latin-ext"
+	rel="stylesheet">
+<link href="http://fonts.googleapis.com/css?family=Gudea:400,400i,700&amp;subset=latin-ext" rel="stylesheet">
+<link href="http://fonts.googleapis.com/css?family=Marck+Script&amp;subset=cyrillic,latin-ext" rel="stylesheet">
+<!-- //web-fonts -->
+<script src="js/jquery-1.11.1.min.js"></script>
+<script src="js/echarts.min.js"></script>
+<script src="js/china.js"></script>
+</head>
+
+<body>
+<!-- 导航+封面 -->
+<!-- banner -->
+<div class="agileits-banner">
+	<div class="bnr-agileinfo">
+		<!-- navigation -->
+		<div class="top-nav w3-agiletop">
+			<div class="container">
+				<div class="navbar-header w3llogo">
+					<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+						<span class="sr-only">Toggle navigation</span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+					</button>
+					<h1><a href="旅行.html">旅行 在路上<span></span></a></h1>
+				</div>
+				<!-- Collect the nav links, forms, and other content for toggling -->
+				<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+					<div class="w3menu navbar-right">
+						<ul class="nav navbar">
+							<li><a href="旅行.html" class="active">启航</a></li>
+							<li><a href="#about" class="scroll">你不知道的事</a></li>
+							<li><a href="#gallery" class="scroll">以梦之名</a></li>
+							<!-- <li><a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><span data-letters="Pages">驰而不息</span><span class="caret"></span></a> -->
+								<!-- <ul class="dropdown-menu"> -->
+									<li><a href="#team" class="scroll">与你同行</a></li>
+									<!-- <li><a href="#testi" class="scroll">他们说</a></li> -->
+								<!-- </ul> -->
+							<!-- </li> -->
+							<!-- <li><a href="#contact" class="scroll">Contact Us</a></li> -->
+						</ul>
+					</div>
+					<div class="clearfix"> </div>
+				</div>
+			</div>
+		</div>
+		<!-- //navigation -->
+		<!-- banner-text -->
+		<div class="banner-w3text">
+			<div class="container">
+				<div class="w3l-agile">
+					<h2>永不停歇的<span>脚步</span></h2>
+					<div class="banner-pw3l">
+						<p>交织成七彩的梦</p>
+					</div>
+					<div class="w3lsmore">
+						<a href="个人简历.html" class="button-pipaluk button--inverted">最后再点我</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- //banner-text -->
+	</div>
+</div>
+<!-- //banner -->
+
+<!-- 地图 -->
+<!-- Modal2 -->
+<div class="modal fade" id="myModal1" tabindex="-1" role="dialog">
+	<div class="modal-dialog">
+		<!-- Modal content-->
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal">&times;</button>
+
+
+				<!-- 中国地图 -->
+				<div id="container" style="height: 480px;width:720px;background:white;margin:20px 0 0;"></div>
+
+				<script type="text/javascript">
+					// 全国省份列表
+					var dataMap = [{ name: '北京' }, { name: '天津' }, { name: '上海' }, { name: '重庆' }, { name: '河北' }, { name: '河南' }, 
+					{ name: '云南' }, { name: '辽宁' }, { name: '黑龙江' }, { name: '湖南' }, { name: '安徽' }, { name: '山东' },{ name: '新疆' }, 
+					{ name: '江苏' }, { name: '浙江' }, { name: '江西' }, { name: '湖北' }, { name: '广西' }, { name: '甘肃' }, { name: '山西' }, 
+					{ name: '内蒙古' }, { name: '陕西' }, { name: '吉林' }, { name: '福建' }, { name: '贵州' },{ name: '广东' }, { name: '青海' }, 
+					{ name: '西藏' }, { name: '四川' }, { name: '宁夏' }, { name: '海南' }, { name: '台湾' },{ name: '香港' }, { name: '澳门' }]
+					// 需要在页面上直接标记出来的城市
+					var specialMap = ['北京', '天津', '上海', '河北', '河南', '辽宁', '湖南', '山东', '江苏', '江西', '湖北', '福建', '贵州', '陕西'];
+					// 对dataMap进行处理，使其可以直接在页面上展示
+					for (var i = 0; i < specialMap.length; i++) {
+						for (var j = 0; j < dataMap.length; j++) {
+							if (specialMap[i] == dataMap[j].name) {
+								dataMap[j].selected = true;
+								break;
+							}
+						}
+					}
+					// 绘制图表，准备数据
+					var option = {
+						tooltip: {
+							formatter: function (params) {
+								var info = '<p style="font-size:18px">' + params.name + '</p><p style="font-size:14px"></p>'
+								return info;
+							},
+							backgroundColor: "#ff7f50",//提示标签背景颜色
+							textStyle: { color: "#fff" } //提示标签字体颜色
+						},
+						series: [
+							{
+								name: '中国',
+								type: 'map',
+								mapType: 'china',
+								selectedMode: 'multiple',
+								label: {
+									normal: {
+										show: true,//显示省份标签
+										// textStyle:{color:"#c71585"}//省份标签字体颜色
+									},
+									emphasis: {
+										show: true,//对应的鼠标悬浮效果
+										// textStyle:{color:"#800080"}
+									}
+								},
+								itemStyle: {
+									normal: {
+										borderWidth: .5,//区域边框宽度
+										// borderColor: '#009fe8',//区域边框颜色
+										// areaColor:"#ffefd5",//区域颜色
+									},
+									emphasis: {
+										borderWidth: .5,
+										borderColor: '#4b0082',
+										areaColor: "#ffdead",
+									}
+								},
+								data: dataMap
+							}
+						]
+					};
+					//初始化echarts实例
+					var myChart = echarts.init(document.getElementById('container'));
+					//使用制定的配置项和数据显示图表
+					myChart.setOption(option);
+				</script>
+
+				<div style="text-align:center;clear:both;">
+				<script src="/gg_bd_ad_720x90.js" type="text/javascript"></script>
+				<script src="/follow.js" type="text/javascript"></script>
+				</div>
+
+				<!-- <h4>Trendy Travel</h4>
+				<img src="images/g1.jpg" alt=" " class="img-responsive">
+				<h5>To Travel is to take a journey into yourself.</h5>
+				<p>Dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
+					ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p> -->
+
+			
+			</div>
+		</div>
+	</div>
+</div>
+<!-- //Modal2 -->
+
+<!-- Stats -->
+<div class="stats services news-w3layouts">
+	<div class="container">
+		<div class="stats-agileinfo agileits-w3layouts">
+			<div class="col-sm-3 col-xs-3 stats-grid">
+				<div class='numscroller numscroller-big-bottom' data-slno='1' data-min='0' data-max='13' data-delay='5' data-increment="1">13</div>
+				<h6>省份</h6>
+			</div>
+			<div class="col-sm-3 col-xs-3 stats-grid">
+				<div class='numscroller numscroller-big-bottom' data-slno='1' data-min='0' data-max='60' data-delay='5' data-increment="1">60</div>
+				<h6>城市</h6>
+			</div>
+			<div class="col-sm-3 col-xs-3 stats-grid">
+				<div class='numscroller numscroller-big-bottom' data-slno='1' data-min='0' data-max='200' data-delay='5' data-increment="1">200</div>
+				<h6>景点</h6>
+			</div>
+			<div class="col-sm-3 col-xs-3 stats-grid">
+				<div class='numscroller numscroller-big-bottom' data-slno='1' data-min='0' data-max='2000' data-delay='5' data-increment="2">2000</div>
+				<h6>时长</h6>
+			</div>
+			<div class="clearfix"></div>
+		</div>
+	</div>
+</div>
+<!-- //Stats -->
+
+<!-- 旅行的意义 -->
+<!-- about -->
+<div class="about w3layouts-agileinfo" id="about">
+	<div class="container">
+		<h3 class="agile-titlew3">旅行的意义是什么？<span></span></h3>
+		<div class="about-top w3ls-agile">
+			<div class="col-sm-6 red">
+				<h5>&nbsp;&nbsp;&nbsp;&nbsp;每个人都有着不同的答案。<br><br>
+				&nbsp;&nbsp;&nbsp;&nbsp;对于我来说，是对日常生活的厌倦，是无聊时光的消遣，
+				<span>也是对美好的追求。</span><br><br>
+				&nbsp;&nbsp;&nbsp;&nbsp;旅行，有着让人无法自拔的魅力，在祖国大好河山留下自己的足迹，而不是仅仅停留在网上的照片图集之中，想想就让人激动。<br>
+				<span></span>
+				</h5>
+			</div>
+			<div class="col-sm-6 about-wel">
+				<p><span style="color: #ff2d51; font-size: 1.4em; font-weight: 700;">泱泱大国，五千年华夏。</span>我始终坚信我生活在世界上最美好的地方，我们没有理由不热爱这个美丽又温暖的国家。</p>
+				<p>那么，我要用我的步足去丈量这片土地，让我走过的每块版图拼接在一起，可以拼成一只雄鸡，一头醒狮。</p>
+				<p>还有，就是想结识更多可爱的人，遇见更多可爱的事。</p>
+				<p>出去看看自己眼中的世界，你会碰见很多好看的皮囊，和有趣的灵魂。</p>
+				<p style="color: #9B30FF; font-size: 1.3em; font-weight: 700;">世界很大，想去的地方很多，我始终在路上</p>
+				<div class="w3lsmore">
+					<a href="https://h5.liuyilin.top/%E4%B8%AA%E4%BA%BA%E7%AE%80%E5%8E%86.html" class="button-pipaluk button--inverted" data-toggle="modal" data-target="#myModal1">点击查看旅行地图</a>
+				</div>
+			</div>
+			<div class="clearfix"> </div>
+		</div>
+	</div>
+</div>
+<!-- //about -->
+
+<!-- 下一站 -->
+<!-- middle -->
+<div class="middle-w3l">
+	<div class="container">
+		<h3 class="agile-titlew3">下一站<span></span></h3>
+		<div class="about-right-w3-agileits">
+			<div class="callbacks_container">
+				<ul class="rslides" id="slider3">
+					<li>
+						<div class="col-md-6 about-left-w3-agileits">
+							<h6>成都</h6>
+							<h3>天府之国</h3>
+							<p class="para-w3-agile">一座来了就不想离开的城市，这里是旅游的天堂。<br>
+							无法拒绝她火辣辣的美食，无法拒绝她惊艳的自然风光<br>
+							更无法拒绝她的古蜀文化。</p>
+							<div class="w3l-book">
+								<h5>青城山、都江堰、武侯祠...</h5>
+								<h6><span></span>茶香迎客，醉美四川</h6>
+							</div>
+						</div>
+						<div class="col-md-6 banner-text1">
+							<img src="images/成都.jpg" alt=" ">
+						</div>
+						<div class="clearfix"> </div>
+					</li>
+					<li>
+						<div class="col-md-6 about-left-w3-agileits">
+							<h6>杭州</h6>
+							<h3>人间天堂</h3>
+							<p class="para-w3-agile">山水秀丽，林壑幽深<br>
+								古典与现代交融，自然与人文相辉，娇而不作，华而不浮，落落大方。<br>
+								西湖群山，尽显帝王之气</p>
+							<div class="w3l-book">
+								<h5>西湖、千岛湖、断桥残雪...</h5>
+								<h6><span></span>爱情之都，天堂城市</h6>
+							</div>
+						</div>
+						<div class="col-md-6 banner-text1">
+							<img src="images/西湖.jpg" alt=" ">
+						</div>
+						<div class="clearfix"> </div>
+					</li>
+					<li>
+						<div class="col-md-6 about-left-w3-agileits">
+							<h6>哈尔滨</h6>
+							<h3>冰雪之国</h3>
+							<p class="para-w3-agile">银装素裹的世界，可以让人忘却寒冷，和雪花一起翩翩起舞<br>
+								扑倒在蓬松的雪地里，感受大地的美丽，天空的蔚蓝和地球的呼吸<br>
+								见证历史与现实、见识水与冰、温柔与刚强</p>
+							<div class="w3l-book">
+								<h5>欧式老街、松花江、冰雪大世界...</h5>
+								<h6><span></span>冰城夏都，风情哈尔滨</h6>
+							</div>
+						</div>
+						<div class="col-md-6 banner-text1">
+							<img src="images/哈尔滨.jpeg" alt=" ">
+						</div>
+						<div class="clearfix"> </div>
+					</li>
+					<li>
+						<div class="col-md-6 about-left-w3-agileits">
+							<h6>青海湖</h6>
+							<h3>最接近天堂的地方</h3>
+							<p class="para-w3-agile">天是什么颜色，青海湖就是什么颜色，水天一色是青海湖的容颜<br>
+								本以为身处湖边，却发现这只是如此逼真的梦境<br>
+								她，是我魂牵梦绕的炫彩世界</p>
+							<div class="w3l-book">
+								<h5>茶卡盐湖、鸟岛景区、金银滩草原...</h5>
+								<h6><span></span>青之韵，海之情，湖之魂</h6>
+							</div>
+						</div>
+						<div class="col-md-6 banner-text1">
+							<img src="images/茶卡盐湖.jpeg" alt=" ">
+						</div>
+						<div class="clearfix"> </div>
+					</li>
+				</ul>
+			</div>
+		</div>
+		<div class="clearfix"> </div>
+	</div>
+</div>
+<!-- //middle -->
+
+<!-- 实习日记 -->
+<!-- Gallery -->
+<div id="gallery" class="gallery">
+	<div class="container">
+		<h3 class="title-w3-agile">实习日记</h3>
+	</div>
+	<div class="agileinfo-gallery-row">
+		<div class="col-md-3 col-sm-3 col-xs-6 w3gallery-grids">
+			<a href="https://homework.liuyilin.top/" class="imghvr-hinge-right figure">
+			<img src="images/作业1.jpg" alt="" title="Trendy Travel Image"/> 
+			<div class="agile-figcaption">
+			<h4>Day1</h4>
+				<p>初遇</p>
+			</div>
+		</a>
+		</div>
+		<div class="col-md-3 col-sm-3 col-xs-6 w3gallery-grids">
+			<a href="https://homework.liuyilin.top/html/%E4%B8%AA%E4%BA%BA%E4%B8%BB%E9%A1%B5.html" class="imghvr-hinge-right figure">
+			<img src="images/作业2.jpg" alt="" title="Trendy Travel Image"/> 
+			<div class="agile-figcaption">
+			<h4>Day2</h4>
+			   <p>新鲜</p>
+			</div>
+		</a>
+		</div>
+		<div class="col-md-3 col-sm-3 col-xs-6 w3gallery-grids">
+			<a href="https://homework.liuyilin.top/html/%E5%85%B3%E4%BA%8E%E8%BF%9C%E5%A4%A7.html" class="imghvr-hinge-right figure">
+			<img src="images/作业3.jpg" alt="" title="Trendy Travel Image"/> 
+			<div class="agile-figcaption">
+			<h4>Day3</h4>
+			   <p>尝试</p>
+			</div>
+		</a>
+		</div>
+		<div class="col-md-3 col-sm-3 col-xs-6 w3gallery-grids">
+			<a href="https://homework.liuyilin.top/html/%E5%AE%B6%E5%B1%85%E5%8C%BB%E7%94%9F.html" class="imghvr-hinge-right figure">
+			<img src="images/作业4.png" alt="" title="Trendy Travel Image"/> 
+			<div class="agile-figcaption">
+			<h4>Day4</h4>
+			   <p>执着</p>
+			</div>
+		</a>
+		</div>
+		<div class="col-md-3 col-sm-3 col-xs-6 w3gallery-grids">
+			<a href="https://homework.liuyilin.top/html/%E5%B0%8F%E7%B1%B3%E5%95%86%E5%9F%8E.html" class="imghvr-hinge-right figure">
+			<img src="images/作业5.jpeg" alt="" title="Trendy Travel Image"/> 
+			<div class="agile-figcaption">
+			<h4>Day5</h4>
+			   <p>希望</p>
+			</div>
+		</a>
+		</div>
+		<div class="col-md-3 col-sm-3 col-xs-6 w3gallery-grids">
+			<a href="https://homework.liuyilin.top/html/%E5%AE%B6%E5%B1%85%E5%8C%BB%E7%94%9F-%E4%B8%AA%E4%BA%BA%E4%B8%AD%E5%BF%83.html" class="imghvr-hinge-right figure">
+			<img src="images/作业6.jpg" alt="" title="Trendy Travel Image"/> 
+			<div class="agile-figcaption">
+			<h4>D6</h4>
+			  <p>梦想</p>
+			</div>
+		</a>
+		</div>
+		<div class="col-md-3 col-sm-3 col-xs-6 w3gallery-grids">
+			<a href="https://homework.liuyilin.top/html/%E5%B0%8F%E7%B1%B3%E5%AE%98%E7%BD%91.html" class="imghvr-hinge-right figure">
+			<img src="images/作业7.png" alt="" title="Trendy Travel Image"/> 
+			<div class="agile-figcaption">
+			<h4>D7</h4>
+				<p>绽放</p>
+			</div>
+		</a>
+		</div>
+		<div class="col-md-3 col-sm-3 col-xs-6 w3gallery-grids">
+			<a href="https://homework.liuyilin.top/html/%E6%9C%A8%E5%85%AE%E5%9C%B0%E6%9D%BF.html" class="imghvr-hinge-right figure">
+			<img src="images/作业8.jpg" alt="" title="Trendy Travel Image"/> 
+			<div class="agile-figcaption">
+			<h4>D8</h4>
+			   <p>收获</p>
+			</div>
+		</a>
+		</div>
+		<div class="clearfix"> </div>
+
+	</div>
+</div>
+<!-- //Gallery -->
+
+<!-- 小组成员 -->
+<!-- team -->
+<div class="team" id="team">
+	<div class="container">
+		<h3 class="title-w3-agile">小组成员</h3>
+		<div class="team-grids">
+			<ul class="ch-grid">
+				<li class="col-xs-3 ch-grid-item">
+					<div class="ch-item ch-img-1">
+						<a href="https://qian0628.gitee.io/personal_website"><img src="images/dong.jpg" alt=" "></a>
+					</div>
+					<div class="ch-info">
+						<h3>董倩</h3>
+						<div class="social-icons animated wow bounceInDown" data-wow-duration="1000ms" data-wow-delay="800ms">
+							<ul class="top-links">
+								<li><a href="https://qian0628.gitee.io/personal_website"><i class="fa fa-facebook"></i></a></li>
+								<li><a href="https://qian0628.gitee.io/personal_website"><i class="fa fa-twitter"></i></a></li>
+								<li><a href="https://qian0628.gitee.io/personal_website"><i class="fa fa-google-plus"></i></a></li>
+							</ul>
+							<div class="clearfix"> </div>
+						</div>
+					</div>
+				</li>
+				<li class="col-xs-3 ch-grid-item">
+					<div class="ch-item ch-img-2">
+						<a href="https://yangmanli.gitee.io/personal-website"><img src="images/yang.jpg" alt=" "></a>
+					</div>
+					<div class="ch-info">
+						<h3>杨曼丽</h3>
+						<div class="social-icons animated wow bounceInDown" data-wow-duration="1000ms" data-wow-delay="800ms">
+							<ul class="top-links">
+								<li><a href="https://yangmanli.gitee.io/personal-website"><i class="fa fa-facebook"></i></a></li>
+								<li><a href="https://yangmanli.gitee.io/personal-website"><i class="fa fa-twitter"></i></a></li>
+								<li><a href="https://yangmanli.gitee.io/personal-website"><i class="fa fa-google-plus"></i></a></li>
+							</ul>
+							<div class="clearfix"> </div>
+						</div>
+					</div>
+				</li>
+				<li class="col-xs-3 ch-grid-item">
+					<div class="ch-item ch-img-3">
+						<a href="https://xiaojubangtang.gitee.io/home"><img src="images/li.jpg" alt=" "></a>
+					</div>
+					<div class="ch-info">
+						<h3>李治宏</h3>
+						<div class="social-icons animated wow bounceInDown" data-wow-duration="1000ms" data-wow-delay="800ms">
+							<ul class="top-links">
+								<li><a href="https://xiaojubangtang.gitee.io/home"><i class="fa fa-facebook"></i></a></li>
+								<li><a href="https://xiaojubangtang.gitee.io/home"><i class="fa fa-twitter"></i></a></li>
+								<li><a href="https://xiaojubangtang.gitee.io/home"><i class="fa fa-google-plus"></i></a></li>
+							</ul>
+							<div class="clearfix"> </div>
+						</div>
+					</div>
+				</li>
+				<li class="col-xs-3 ch-grid-item">
+					<div class="ch-item ch-img-4">
+						<a href="https://guomy.gitee.io/my-first-personal-page"><img src="images/guo.jpg" alt=" "></a>
+					</div>
+					<div class="ch-info">
+						<h3>郭飞飞</h3>
+						<div class="social-icons animated wow bounceInDown" data-wow-duration="1000ms" data-wow-delay="800ms">
+							<ul class="top-links">
+								<li><a href="https://guomy.gitee.io/my-first-personal-page"><i class="fa fa-facebook"></i></a></li>
+								<li><a href="https://guomy.gitee.io/my-first-personal-page"><i class="fa fa-twitter"></i></a></li>
+								<li><a href="https://guomy.gitee.io/my-first-personal-page"><i class="fa fa-google-plus"></i></a></li>
+							</ul>
+							<div class="clearfix"> </div>
+						</div>
+					</div>
+				</li>
+				<li class="col-xs-3 ch-grid-item">
+					<div class="ch-item ch-img-5">
+						<a href="https://ji00.gitee.io/homework/"><img src="images/ji.jpg" alt=" "></a>
+					</div>
+					<div class="ch-info">
+						<h3>吉继帅</h3>
+						<div class="social-icons animated wow bounceInDown" data-wow-duration="1000ms" data-wow-delay="800ms">
+							<ul class="top-links">
+								<li><a href="https://ji00.gitee.io/homework/"><i class="fa fa-facebook"></i></a></li>
+								<li><a href="https://ji00.gitee.io/homework/"><i class="fa fa-twitter"></i></a></li>
+								<li><a href="https://ji00.gitee.io/homework/"><i class="fa fa-google-plus"></i></a></li>
+							</ul>
+							<div class="clearfix"> </div>
+						</div>
+					</div>
+				</li>
+			</ul>
+			<div class="clearfix"> </div>
+		</div>
+		<div class="clearfix"> </div>
+	</div>
+</div>
+<!-- //team -->
+
+
+<!-- testimonials -->
+<!--<div class="testimonials" id="testi">
+	<div class="container">
+		<h3 class="title-w3-agile">Our Customer Says</h3>
+		<div class="agile_testimonials_grids">
+			<ul id="flexiselDemo1">
+				<li>
+					<div class="agile_testimonials_grid">
+						<div class="agile_testimonials_grid1">
+							<div class="col-md-4 w3_agile_testimonials_grid">
+								<div class="w3_agile_testimonials_grid_left">
+									<img src="images/te1.jpg" alt=" " />
+								</div>
+							</div>
+							<div class="col-md-7 w3_agile_testimonials_grid_right">
+								<i class="fa fa-quote-left" aria-hidden="true"></i>
+								<p>Vivamus sed porttitor felis. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis
+									egestas.Sed lorem enim, rutrum quis diam nec, molestie interdum lacus.</p>
+								<h4>- Jessica Leo</h4>
+							</div>
+							<div class="clearfix"> </div>
+						</div>
+					</div>
+				</li>
+				<li>
+					<div class="agile_testimonials_grid">
+						<div class="agile_testimonials_grid1">
+							<div class="col-md-4 w3_agile_testimonials_grid">
+								<div class="w3_agile_testimonials_grid_left">
+									<img src="images/te2.jpg" alt=" " />
+								</div>
+							</div>
+							<div class="col-md-7 w3_agile_testimonials_grid_right">
+								<i class="fa fa-quote-left" aria-hidden="true"></i>
+								<p>Vivamus sed porttitor felis. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis
+									egestas.Sed lorem enim, rutrum quis diam nec, molestie interdum lacus.</p>
+								<h4>- Lictoria Roy</h4>
+							</div>
+							<div class="clearfix"> </div>
+						</div>
+					</div>
+				</li>
+			</ul>
+
+		</div>
+	</div>
+</div> -->
+<!-- //testimonials -->
+
+<!-- contact -->
+<!-- <div class="contact" id="contact">
+	<div class="container">
+		<h3 class="title-w3-agile">Contact Us</h3>
+		<div class="col-xs-7 contact-agileits-w3layouts">
+			<h5 class="sub">Send us a message</h5>
+			<form action="#" method="post">
+				<input type="text" class="name" name="Your Name" placeholder="Name" required="" />
+				<input type="email" class="email" name="Your Email" placeholder="Email" required="" />
+				<input type="text" Name="Phone Number" placeholder="Number" required="" />
+				<textarea name="Message" placeholder="Message" required></textarea>
+				<input type="submit" value="Submit">
+			</form>
+		</div>
+		<div class="col-xs-5 map-agileits-w3layouts">
+			<iframe src=""></iframe>
+		</div>
+	</div>
+</div> -->
+<!-- //contact -->
+
+<!-- newsletter -->
+<!-- <div class="footer-top">
+	<div class="container">
+		<div class="col-xs-8 agile-leftmk">
+			<h3 class="title-w3-agile">Subscribe Here</h3>
+			<p>New Blog Posts delivered fresh to your inbox.</p>
+			<form action="#" method="post">
+				<input type="email" placeholder="E-mail" name="email" required="">
+				<input type="submit" value="Subscribe">
+			</form>
+		</div>
+		<div class="col-xs-4 w3l-rightmk">
+			<img src="images/4.png" alt=" ">
+		</div>
+	</div>
+</div> -->
+<!-- //newsletter -->
+
+<!-- footer start here -->
+<div class="footer-agile">
+	<div class="container">
+		<div class="footer-btm-agileinfo">
+			<div class="col-md-3 col-xs-3 footer-grid w3social">
+				<h3>Quick Links</h3>
+				<ul>
+					<li><a href="旅行.html">再出发</a></li>
+					<li><a href="#about" class="scroll">你不知道的事</a></li>
+					<li><a href="#gallery" class="scroll">实习日记</a></li>
+					<li><a href="#team" class="scroll">与你同行</a></li>
+				</ul>
+			</div>
+			<div class="col-md-3 col-xs-3 footer-grid">
+				<h3>Useful Info</h3>
+				<ul>
+					<li><i class="fa fa-map-marker"></i>&nbsp;湖北武汉</li>
+					<li><i class="fa fa-fax"></i>武汉工程大学</li>
+					<li><i class="fa fa-phone"></i>+86 17786133464</li>
+					<li><i class="fa fa-envelope-o"></i><a href="liuyilin2016@qq.com">liuyilin2016@qq.com</a></li>
+				</ul>
+			</div>
+			<div class="col-md-6 col-xs-6 footer-grid footer-review">
+				<h3>Few Words</h3>
+				<p>未来的路很长，我还要继续向前走，坚定的走下去，让自己的脚印印在祖国的每个角落。</p>
+				<p class="w3l-para-mk">人生之旅，我始终在前行，即使慢，驰而不息，心之所向，必将到达！</p>
+			</div>
+			<div class="clearfix"> </div>
+		</div>
+		<div class="footer-agilem">
+			<div class="col-sm-8 col-xs-9 copy-w3lsright">
+				<p>Copyright &copy; 2017.Company name All rights reserved.</p>
+			</div>
+			<div class="col-sm-4 col-xs-3 social-w3licon">
+				<a href="旅行.html" class="social-button twitter"><i class="fa fa-twitter"></i></a>
+				<a href="旅行.html" class="social-button facebook"><i class="fa fa-facebook"></i></a>
+				<a href="旅行.html" class="social-button google"><i class="fa fa-google-plus"></i></a>
+				<a href="旅行.html" class="social-button dribbble"><i class="fa fa-dribbble"></i></a>
+			</div>
+			<div class="clearfix"></div>
+		</div>
+	</div>
+</div>
+<!-- //footer end here -->
+
+<!-- js -->
+<script src="js/jquery-2.2.3.min.js"></script>
+<!-- //js -->
+<!-- Progressive-Effects-Animation-JavaScript -->
+<script type="text/javascript" src="js/numscroller-1.0.js"></script>
+<!-- //Progressive-Effects-Animation-JavaScript -->
+<!-- responsiveslides -->
+<script src="js/responsiveslides.min.js"></script>
+<script>
+	// You can also use "$(window).load(function() {"
+	$(function () {
+		// Slideshow 4
+		$("#slider3").responsiveSlides({
+			auto: true,
+			pager: true,
+			nav: false,
+			speed: 500,
+			namespace: "callbacks",
+			before: function () {
+				$('.events').append("<li>before event fired.</li>");
+			},
+			after: function () {
+				$('.events').append("<li>after event fired.</li>");
+			}
+		});
+	});
+</script>
+<!-- //responsiveslides -->
+<!-- simple-lightbox -->
+<script type="text/javascript" src="js/simple-lightbox.min.js"></script>
+<script>
+	$(function () {
+		var gallery = $('.agileinfo-gallery-row a').simpleLightbox({
+			navText: ['&lsaquo;', '&rsaquo;']
+		});
+	});
+</script>
+<link href='css/simplelightbox.min.css' rel='stylesheet' type='text/css'>
+<!-- Light-box css -->
+<!-- //simple-lightbox -->
+<!-- start-smooth-scrolling -->
+<script type="text/javascript" src="js/move-top.js"></script>
+<script type="text/javascript" src="js/easing.js"></script>
+<script type="text/javascript">
+	jQuery(document).ready(function ($) {
+		$(".scroll").click(function (event) {
+			event.preventDefault();
+
+			$('html,body').animate({
+				scrollTop: $(this.hash).offset().top
+			}, 1000);
+		});
+	});
+</script>
+<!-- //end-smooth-scrolling -->
+<!-- smooth-scrolling-of-move-up -->
+<script type="text/javascript">
+	$(document).ready(function () {
+		/*
+		var defaults = {
+			containerID: 'toTop', // fading element id
+			containerHoverID: 'toTopHover', // fading element hover id
+			scrollSpeed: 1200,
+			easingType: 'linear' 
+		};
+		*/
+
+		$().UItoTop({
+			easingType: 'easeOutQuart'
+		});
+
+	});
+</script>
+<!-- //smooth-scrolling-of-move-up -->
+<!-- Flexslider-js -->
+<script type="text/javascript">
+	$(window).load(function () {
+		$("#flexiselDemo1").flexisel({
+			visibleItems: 1,
+			animationSpeed: 1000,
+			autoPlay: false,
+			autoPlaySpeed: 5000,
+			pauseOnHover: true,
+			enableResponsiveBreakpoints: true,
+			responsiveBreakpoints: {
+				portrait: {
+					changePoint: 480,
+					visibleItems: 1
+				},
+				landscape: {
+					changePoint: 640,
+					visibleItems: 1
+				},
+				tablet: {
+					changePoint: 768,
+					visibleItems: 1
+				}
+			}
+		});
+	});
+</script>
+<script type="text/javascript" src="js/jquery.flexisel.js"></script>
+<!-- //Flexslider-js -->
+<!-- Bootstrap core JavaScript
+================================================== -->
+<!-- Placed at the end of the document so the pages load faster -->
+<script src="js/bootstrap.js"></script>
+<!-- //Bootstrap core JavaScript -->
+
+</body>
+
+</html>
