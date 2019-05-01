@@ -24,6 +24,7 @@ $("#willerce").click(function(){
     $("#right").fadeIn("slow");
     $("#label").fadeIn("slow");
 })
+
 //代码源于网络，摘抄请勿删除此注释，2017.11.12
 //判断用户PC/Phone平台
 function browserRedirect() {
